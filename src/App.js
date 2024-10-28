@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useMemo, useState } from 'react';
+import Test from './components/Test';
 
-function App() {
+const App = () => {
+  console.log("APP");
+  const [state, setState] = useState(10)
+    
+    const clickHandler=()=>{
+      setState({})
+    }
+  
+    const obj = useMemo(()=>{
+      return {
+        age: 50
+      }
+    },[])
+    console.log(obj);
+
+    const arr = useMemo(()=>{
+      return [1,2]
+    }, [])
+    console.log(arr);
+    
+
+   const show = useCallback(()=>{
+    return ()=>{}
+   },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Test state={show}/>
+      <button onClick={clickHandler}>ADD</button>
+      <h1>{}</h1>
     </div>
-  );
+  )
 }
 
 export default App;
+
+// memo()
+// useMemo()
+// useCallback()
+
+
+// code  => React DOM => DOM
+
+// uwefuvvf          =>  DOM
